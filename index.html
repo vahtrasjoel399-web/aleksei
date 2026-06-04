@@ -120,6 +120,27 @@
       <div class="sec-ey"   data-i18n="srv.ey"></div>
       <h2 class="sec-title" data-i18n="srv.title"></h2>
     </div>
+    <!-- Основная услуга -->
+    <div class="srv-main fi">
+      <div class="srv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <div class="srv-main-body">
+        <div class="srv-main-badge" data-i18n="srv.mainBadge"></div>
+        <h3 class="srv-title" data-i18n="srv.s0t"></h3>
+        <p  class="srv-desc"  data-i18n="srv.s0d"></p>
+        <ul class="srv-list">
+          <li data-i18n="srv.s0l1"></li>
+          <li data-i18n="srv.s0l2"></li>
+          <li data-i18n="srv.s0l3"></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Дополнительные услуги -->
+    <div class="srv-add-label fi" data-i18n="srv.addLabel"></div>
     <div class="services-grid">
 
       <div class="srv fi d1">
@@ -127,7 +148,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2"/>
             <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-            <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
           </svg>
         </div>
         <h3 class="srv-title" data-i18n="srv.s1t"></h3>
@@ -137,8 +157,7 @@
       <div class="srv fi d2">
         <div class="srv-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
           </svg>
         </div>
         <h3 class="srv-title" data-i18n="srv.s2t"></h3>
@@ -160,7 +179,7 @@
       <div class="srv fi d4">
         <div class="srv-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
           </svg>
         </div>
         <h3 class="srv-title" data-i18n="srv.s4t"></h3>
@@ -358,10 +377,19 @@
     </div>
     <div class="fbot">
       <span class="fbt" data-i18n="ft.copy"></span>
-      <span class="fbt" data-i18n="ft.reg"></span>
+      <a href="privaatsuspoliitika.html" class="fbt fbt-link" data-i18n="ft.privacy"></a>
     </div>
   </div>
 </footer>
+
+<!-- ═══════════════════════════════════════════════════════ COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <p class="cookie-text" data-i18n="cookie.text"></p>
+  <div class="cookie-actions">
+    <a href="privaatsuspoliitika.html" class="cookie-link" data-i18n="cookie.link"></a>
+    <button class="cookie-btn" id="cookie-accept" data-i18n="cookie.accept"></button>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════ SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

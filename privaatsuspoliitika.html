@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privaatsuspoliitika · Mildanmar OÜ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d; --bg2: #111; --bg3: #181818;
+  --acc: #c4783c;
+  --text: #f0ede8; --text2: #999; --text3: #484840;
+  --brd: #222; --brd2: #2e2e2e;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+a { color: var(--acc); }
+a:hover { text-decoration: underline; }
+::selection { background: var(--acc); color: #fff; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--acc); }
+
+header {
+  background: rgba(11,11,11,.95); border-bottom: 1px solid var(--brd);
+  padding: 0 28px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+}
+.logo { display: flex; align-items: center; }
+.logo img { height: 44px; background: #fff; padding: 5px 14px; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,.5); }
+.back-link { font-size: .82rem; color: var(--text2); transition: color .2s; }
+.back-link:hover { color: var(--acc); text-decoration: none; }
+
+.lsw { display: flex; gap: 4px; }
+.lb {
+  padding: 5px 9px; border: 1px solid var(--brd2); border-radius: 5px;
+  background: transparent; color: var(--text3);
+  font-size: .7rem; font-weight: 700; cursor: pointer;
+  transition: all .2s; letter-spacing: 1px; font-family: 'Inter', sans-serif;
+}
+.lb:hover, .lb.on { border-color: var(--acc); color: var(--acc); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+
+main { max-width: 760px; margin: 0 auto; padding: 60px 28px 100px; }
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800; line-height: 1.2; margin-bottom: 8px;
+}
+.page-date { font-size: .8rem; color: var(--text3); margin-bottom: 48px; }
+
+.section { margin-bottom: 40px; }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--text); margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--brd);
+}
+p { font-size: .93rem; color: var(--text2); line-height: 1.85; margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+ul { padding-left: 20px; margin-bottom: 12px; }
+li { font-size: .93rem; color: var(--text2); line-height: 1.85; }
+strong { color: var(--text); font-weight: 600; }
+
+.info-box {
+  background: var(--bg3); border: 1px solid var(--brd2);
+  border-left: 3px solid var(--acc);
+  border-radius: 4px; padding: 18px 20px; margin-bottom: 40px;
+}
+.info-box p { margin-bottom: 4px; }
+
+footer-pp { display: block; border-top: 1px solid var(--brd); margin-top: 60px; padding-top: 24px; text-align: center; }
+footer-pp p { font-size: .8rem; color: var(--text3); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="img/5839027156271435434.jpg" alt="Mildanmar OÜ">
+  </a>
+  <div class="header-right">
+    <div class="lsw">
+      <button class="lb on" data-lang="et">ET</button>
+      <button class="lb" data-lang="ru">RU</button>
+      <button class="lb" data-lang="en">EN</button>
+      <button class="lb" data-lang="fi">FI</button>
+    </div>
+    <a href="index.html" class="back-link" id="back-link">← Tagasi</a>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<script>
+const PP = {
+  et: {
+    back: '← Tagasi',
+    title: 'Privaatsuspoliitika',
+    date: 'Viimati uuendatud: juuni 2025',
+    company: {
+      h: 'Vastutav töötleja',
+      p: `<strong>Mildanmar OÜ</strong><br>
+          Uus tn 10-4, Kiviõli linn, Lüganuse vald, 43124 Eesti<br>
+          E-post: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>`
+    },
+    collect: {
+      h: 'Milliseid andmeid kogume',
+      items: [
+        '<strong>Kontaktivorm:</strong> nimi, telefoninumber, e-posti aadress, töö liik ja projekti kirjeldus.',
+        '<strong>Arvustuste vorm:</strong> nimi, hinnang ja tekst.',
+        '<strong>Veebisaidi kasutamine:</strong> brauseri keele-eelistus (salvestatakse kohalikult teie seadmes).',
+        '<strong>Küpsised:</strong> kasutame ainult funktsionaalseid küpsiseid (localStorage), et meeles pidada teie keele-eelistust. Kolmandate osapoolte reklaami- või jälgimisküpsiseid ei kasutata.'
+      ]
+    },
+    purpose: {
+      h: 'Andmete kasutamise eesmärk',
+      items: [
+        'Päringutele vastamine ja hinnapakkumiste koostamine.',
+        'Arvustuste avaldamine saidil (pärast modereerimist).',
+        'Veebisaidi korrektse töö tagamine.'
+      ]
+    },
+    basis: {
+      h: 'Töötlemise alus',
+      p: 'Teie andmeid töötleme ainult teie nõusolekul (kontaktivormi täitmine on vabatahtlik). Küpsiste puhul on aluseks meie õigustatud huvi veebisaidi funktsionaalsuse tagamiseks.'
+    },
+    storage: {
+      h: 'Andmete säilitamine',
+      p: 'Kontaktivormi andmeid säilitatakse kuni 1 aasta. Küpsised säilivad kuni brauseri vahemälu kustutamiseni. Me ei edasta teie andmeid kolmandatele isikutele, välja arvatud Google Maps (kaardi kuvamiseks, ilma isikuandmeteta).'
+    },
+    rights: {
+      h: 'Teie õigused',
+      items: [
+        '<strong>Juurdepääsuõigus</strong> — saate küsida, milliseid andmeid teie kohta hoiame.',
+        '<strong>Parandamisõigus</strong> — saate nõuda ebaõigete andmete parandamist.',
+        '<strong>Kustutamisõigus</strong> — saate nõuda oma andmete kustutamist.',
+        '<strong>Vastuväite esitamise õigus</strong> — saate esitada vastuväite andmete töötlemisele.'
+      ],
+      contact: 'Õiguste teostamiseks võtke ühendust: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>'
+    },
+    analytics: {
+      h: 'Google Analytics',
+      p: 'Kasutame Google Analytics 4 teenust veebisaidi külastatavuse analüüsimiseks. Google Analytics kogub anonüümset statistikat (lehekülgede vaatamised, külastuste kestus, ligikaudne asukoht). IP-aadressid anonümiseeritakse. Andmeid kogutakse ainult teie nõusolekul (küpsiste vastuvõtmisel). Rohkem infot: <a href="https://policies.google.com/privacy" target="_blank">Google privaatsuspoliitika</a>.'
+    },
+    maps: {
+      h: 'Google Maps',
+      p: 'Meie saidil on integreeritud Google Maps kaart. Kaardi laadimisel võib Google koguda teie IP-aadressi. Rohkem infot: <a href="https://policies.google.com/privacy" target="_blank">Google privaatsuspoliitika</a>.'
+    },
+    changes: {
+      h: 'Muudatused',
+
+      p: 'Jätame endale õiguse seda poliitikat muuta. Muudatustest teavitame, uuendades kuupäeva lehe ülaosas.'
+    }
+  },
+  ru: {
+    back: '← Назад',
+    title: 'Политика конфиденциальности',
+    date: 'Последнее обновление: июнь 2025',
+    company: {
+      h: 'Ответственный оператор',
+      p: `<strong>Mildanmar OÜ</strong><br>
+          Uus tn 10-4, Kiviõli linn, Lüganuse vald, 43124 Эстония<br>
+          Эл. почта: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>`
+    },
+    collect: {
+      h: 'Какие данные мы собираем',
+      items: [
+        '<strong>Форма заявки:</strong> имя, номер телефона, адрес эл. почты, вид работы и описание проекта.',
+        '<strong>Форма отзыва:</strong> имя, оценка и текст.',
+        '<strong>Использование сайта:</strong> языковые предпочтения браузера (хранятся локально на вашем устройстве).',
+        '<strong>Файлы cookie:</strong> используем только функциональные cookie (localStorage) для запоминания языковых предпочтений. Рекламные или отслеживающие cookie третьих сторон не используются.'
+      ]
+    },
+    purpose: {
+      h: 'Цели использования данных',
+      items: [
+        'Ответ на заявки и составление коммерческих предложений.',
+        'Публикация отзывов на сайте (после модерации).',
+        'Обеспечение корректной работы сайта.'
+      ]
+    },
+    basis: {
+      h: 'Основание обработки',
+      p: 'Мы обрабатываем ваши данные только с вашего согласия (заполнение формы является добровольным). Для cookie основанием является наш законный интерес в обеспечении функциональности сайта.'
+    },
+    storage: {
+      h: 'Хранение данных',
+      p: 'Данные форм заявок хранятся до 1 года. Cookie хранятся до очистки кэша браузера. Мы не передаём ваши данные третьим лицам, за исключением Google Maps (для отображения карты, без личных данных).'
+    },
+    rights: {
+      h: 'Ваши права',
+      items: [
+        '<strong>Право доступа</strong> — вы можете запросить, какие данные о вас хранятся.',
+        '<strong>Право на исправление</strong> — вы можете потребовать исправления неточных данных.',
+        '<strong>Право на удаление</strong> — вы можете потребовать удаления своих данных.',
+        '<strong>Право на возражение</strong> — вы можете возразить против обработки данных.'
+      ],
+      contact: 'Для реализации прав обращайтесь: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>'
+    },
+    analytics: {
+      h: 'Google Analytics',
+      p: 'Мы используем Google Analytics 4 для анализа посещаемости сайта. Google Analytics собирает анонимную статистику (просмотры страниц, продолжительность визитов, приблизительное местоположение). IP-адреса анонимизируются. Данные собираются только с вашего согласия. Подробнее: <a href="https://policies.google.com/privacy" target="_blank">Политика конфиденциальности Google</a>.'
+    },
+    maps: {
+      h: 'Google Maps',
+      p: 'На нашем сайте встроена карта Google Maps. При загрузке карты Google может собирать ваш IP-адрес. Подробнее: <a href="https://policies.google.com/privacy" target="_blank">Политика конфиденциальности Google</a>.'
+    },
+    changes: {
+      h: 'Изменения',
+      p: 'Мы оставляем за собой право изменять данную политику. Об изменениях уведомляем путём обновления даты вверху страницы.'
+    }
+  },
+  en: {
+    back: '← Back',
+    title: 'Privacy Policy',
+    date: 'Last updated: June 2025',
+    company: {
+      h: 'Data Controller',
+      p: `<strong>Mildanmar OÜ</strong><br>
+          Uus tn 10-4, Kiviõli linn, Lüganuse vald, 43124 Estonia<br>
+          Email: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>`
+    },
+    collect: {
+      h: 'What Data We Collect',
+      items: [
+        '<strong>Contact form:</strong> name, phone number, email address, type of work and project description.',
+        '<strong>Review form:</strong> name, rating and review text.',
+        '<strong>Website usage:</strong> browser language preference (stored locally on your device).',
+        '<strong>Cookies:</strong> we use only functional cookies (localStorage) to remember your language preference. No third-party advertising or tracking cookies are used.'
+      ]
+    },
+    purpose: {
+      h: 'Purpose of Data Use',
+      items: [
+        'Responding to enquiries and preparing quotes.',
+        'Publishing reviews on the site (after moderation).',
+        'Ensuring correct website functionality.'
+      ]
+    },
+    basis: {
+      h: 'Legal Basis',
+      p: 'We process your data only with your consent (completing the form is voluntary). For cookies, the basis is our legitimate interest in ensuring website functionality.'
+    },
+    storage: {
+      h: 'Data Retention',
+      p: 'Contact form data is retained for up to 1 year. Cookies persist until the browser cache is cleared. We do not share your data with third parties, except Google Maps (for displaying the map, without personal data).'
+    },
+    rights: {
+      h: 'Your Rights',
+      items: [
+        '<strong>Right of access</strong> — you may request what data we hold about you.',
+        '<strong>Right to rectification</strong> — you may request correction of inaccurate data.',
+        '<strong>Right to erasure</strong> — you may request deletion of your data.',
+        '<strong>Right to object</strong> — you may object to the processing of your data.'
+      ],
+      contact: 'To exercise your rights, contact us: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>'
+    },
+    analytics: {
+      h: 'Google Analytics',
+      p: 'We use Google Analytics 4 to analyse website traffic. It collects anonymous statistics (page views, visit duration, approximate location). IP addresses are anonymised. Data is only collected after you accept cookies. More info: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.'
+    },
+    maps: {
+      h: 'Google Maps',
+      p: 'Our site uses an embedded Google Maps map. When the map loads, Google may collect your IP address. More info: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.'
+    },
+    changes: {
+      h: 'Changes',
+      p: 'We reserve the right to amend this policy. We will notify of changes by updating the date at the top of this page.'
+    }
+  },
+  fi: {
+    back: '← Takaisin',
+    title: 'Tietosuojakäytäntö',
+    date: 'Viimeksi päivitetty: kesäkuu 2025',
+    company: {
+      h: 'Rekisterinpitäjä',
+      p: `<strong>Mildanmar OÜ</strong><br>
+          Uus tn 10-4, Kiviõli linn, Lüganuse vald, 43124 Viro<br>
+          Sähköposti: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>`
+    },
+    collect: {
+      h: 'Mitä tietoja keräämme',
+      items: [
+        '<strong>Yhteydenottolomake:</strong> nimi, puhelinnumero, sähköpostiosoite, työn tyyppi ja projektin kuvaus.',
+        '<strong>Arvostelukaavake:</strong> nimi, arvosana ja teksti.',
+        '<strong>Sivuston käyttö:</strong> selaimen kieliasetus (tallennetaan paikallisesti laitteellesi).',
+        '<strong>Evästeet:</strong> käytämme vain toiminnallisia evästeitä (localStorage) kieliasetuksen muistamiseen. Kolmannen osapuolen mainos- tai seurantaevästeitä ei käytetä.'
+      ]
+    },
+    purpose: {
+      h: 'Tietojen käyttötarkoitus',
+      items: [
+        'Kyselyihin vastaaminen ja tarjousten tekeminen.',
+        'Arvostelujen julkaiseminen sivustolla (moderoinnin jälkeen).',
+        'Sivuston asianmukaisen toiminnan varmistaminen.'
+      ]
+    },
+    basis: {
+      h: 'Käsittelyn peruste',
+      p: 'Käsittelemme tietojasi vain suostumuksellasi (lomakkeen täyttäminen on vapaaehtoista). Evästeiden osalta perusteena on oikeutettu etumme sivuston toimivuuden varmistamisessa.'
+    },
+    storage: {
+      h: 'Tietojen säilytys',
+      p: 'Yhteydenottolomakkeen tietoja säilytetään enintään 1 vuosi. Evästeet säilyvät selaimen välimuistin tyhjentämiseen asti. Emme jaa tietojasi kolmansille osapuolille, lukuun ottamatta Google Mapsia (kartan näyttämiseen, ilman henkilötietoja).'
+    },
+    rights: {
+      h: 'Sinun oikeutesi',
+      items: [
+        '<strong>Oikeus saada tietoja</strong> — voit pyytää, mitä tietoja meillä on sinusta.',
+        '<strong>Oikeus oikaista tietoja</strong> — voit vaatia virheellisten tietojen korjaamista.',
+        '<strong>Oikeus poistaa tietoja</strong> — voit vaatia tietojesi poistamista.',
+        '<strong>Vastustamisoikeus</strong> — voit vastustaa tietojesi käsittelyä.'
+      ],
+      contact: 'Oikeuksien toteuttamiseksi ota yhteyttä: <a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a>'
+    },
+    analytics: {
+      h: 'Google Analytics',
+      p: 'Käytämme Google Analytics 4:ää sivuston kävijämäärän analysointiin. Se kerää anonyymiä tilastoa (sivukatselut, vierailun kesto, likimääräinen sijainti). IP-osoitteet anonymisoidaan. Tietoja kerätään vain suostumuksesi jälkeen. Lisätietoja: <a href="https://policies.google.com/privacy" target="_blank">Googlen tietosuojakäytäntö</a>.'
+    },
+    maps: {
+      h: 'Google Maps',
+      p: 'Sivustollamme on integroitu Google Maps -kartta. Kartan latautuessa Google saattaa kerätä IP-osoitteesi. Lisätietoja: <a href="https://policies.google.com/privacy" target="_blank">Googlen tietosuojakäytäntö</a>.'
+    },
+    changes: {
+      h: 'Muutokset',
+      p: 'Pidätämme oikeuden muuttaa tätä käytäntöä. Muutoksista ilmoitetaan päivittämällä sivun yläosassa oleva päivämäärä.'
+    }
+  }
+};
+
+let lang = localStorage.getItem('lang') || 'et';
+
+function render(l) {
+  lang = l;
+  const t = PP[l];
+  document.documentElement.lang = l;
+  document.getElementById('back-link').textContent = t.back;
+  document.title = t.title + ' · Mildanmar OÜ';
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+
+  document.getElementById('content').innerHTML = `
+    <h1 class="page-title">${t.title}</h1>
+    <p class="page-date">${t.date}</p>
+
+    <div class="info-box section">
+      <p>${t.company.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.company.h}</h2>
+      <p>${t.company.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.collect.h}</h2>
+      <ul>${t.collect.items.map(i => `<li>${i}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
+      <h2>${t.purpose.h}</h2>
+      <ul>${t.purpose.items.map(i => `<li>${i}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
+      <h2>${t.basis.h}</h2>
+      <p>${t.basis.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.storage.h}</h2>
+      <p>${t.storage.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.rights.h}</h2>
+      <ul>${t.rights.items.map(i => `<li>${i}</li>`).join('')}</ul>
+      <p style="margin-top:12px">${t.rights.contact}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.analytics.h}</h2>
+      <p>${t.analytics.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.maps.h}</h2>
+      <p>${t.maps.p}</p>
+    </div>
+
+    <div class="section">
+      <h2>${t.changes.h}</h2>
+      <p>${t.changes.p}</p>
+    </div>
+
+    <footer-pp>
+      <p>© 2025 Mildanmar OÜ · <a href="index.html">${t.back.replace('← ','')}</a></p>
+    </footer-pp>
+  `;
+}
+
+document.querySelectorAll('.lb').forEach(b =>
+  b.addEventListener('click', () => render(b.dataset.lang))
+);
+
+render(lang);
+</script>
+</body>
+</html>

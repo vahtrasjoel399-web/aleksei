@@ -185,13 +185,51 @@ nav a:hover, nav a.active { color: var(--text); background: rgba(255, 255, 255, 
 #services { background: var(--bg); }
 .sec-hd   { margin-bottom: 48px; }
 
+/* Основная услуга */
+.srv-main {
+  display: flex; gap: 36px; align-items: flex-start;
+  background: var(--bg3);
+  border: 1px solid var(--brd2);
+  border-left: 3px solid var(--acc);
+  padding: 38px 40px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+.srv-main .srv-icon { flex-shrink: 0; width: 52px; height: 52px; margin-bottom: 0; color: var(--acc); }
+.srv-main .srv-icon svg { width: 100%; height: 100%; }
+.srv-main-body  { flex: 1; }
+.srv-main-badge {
+  font-size: .63rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--acc); margin-bottom: 10px;
+}
+.srv-main .srv-title { font-size: 1.25rem; margin-bottom: 10px; }
+.srv-main .srv-desc  { font-size: .9rem; color: var(--text2); line-height: 1.75; margin-bottom: 16px; }
+.srv-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.srv-list li {
+  font-size: .86rem; color: var(--text2);
+  padding-left: 18px; position: relative;
+}
+.srv-list li::before { content: '—'; position: absolute; left: 0; color: var(--acc); }
+
+/* Метка "Дополнительные услуги" */
+.srv-add-label {
+  font-size: .63rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--text3);
+  margin-bottom: 14px; margin-top: 32px;
+}
+
+/* Сетка дополнительных услуг */
 .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--brd); border: 1px solid var(--brd); }
-.srv           { background: var(--bg); padding: 36px 26px; transition: background .22s; }
+.srv           { background: var(--bg); padding: 32px 24px; transition: background .22s; }
 .srv:hover     { background: var(--bg3); }
-.srv-icon      { width: 38px; height: 38px; margin-bottom: 20px; color: var(--acc); }
+.srv-icon      { width: 36px; height: 36px; margin-bottom: 18px; color: var(--acc); }
 .srv-icon svg  { width: 100%; height: 100%; }
-.srv-title     { font-size: .97rem; font-weight: 700; margin-bottom: 9px; }
-.srv-desc      { font-size: .85rem; color: var(--text2); line-height: 1.75; }
+.srv-title     { font-size: .93rem; font-weight: 700; margin-bottom: 8px; }
+.srv-desc      { font-size: .83rem; color: var(--text2); line-height: 1.75; }
+
+@media (max-width: 768px) {
+  .srv-main { flex-direction: column; gap: 20px; padding: 26px 22px; }
+}
 
 /* ── 3D MODEL ─────────────────────────────────────── */
 #model3d { background: var(--bg); }
@@ -296,6 +334,28 @@ select.finput option { background: var(--bg2); }
 .mapwrap iframe   { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(180deg) saturate(.7); }
 .cform            { background: var(--bg3); border: 1px solid var(--brd); padding: 38px; border-radius: 4px; }
 
+/* ── COOKIE BANNER ────────────────────────────────── */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: #1a1a1a; border-top: 1px solid var(--brd2);
+  padding: 16px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  transform: translateY(100%);
+  transition: transform .4s ease;
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-text  { font-size: .85rem; color: var(--text2); flex: 1; min-width: 200px; }
+.cookie-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+.cookie-link  { font-size: .82rem; color: var(--acc); text-decoration: underline; text-underline-offset: 3px; }
+.cookie-btn   {
+  padding: 8px 22px; background: var(--acc); color: #fff;
+  border: none; border-radius: 5px; font-size: .82rem;
+  font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif;
+  transition: background .2s;
+}
+.cookie-btn:hover { background: var(--acc2); }
+
 /* ── FOOTER ───────────────────────────────────────── */
 footer { background: var(--bg); border-top: 1px solid var(--brd); padding: 54px 0 26px; }
 
@@ -308,6 +368,8 @@ footer { background: var(--bg); border-top: 1px solid var(--brd); padding: 54px 
 .flinks a:hover { color: var(--acc); }
 .fbot      { border-top: 1px solid var(--brd); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .fbt       { color: var(--text3); font-size: .78rem; }
+.fbt-link  { transition: color .2s; }
+.fbt-link:hover { color: var(--acc); }
 
 /* ── RESPONSIVE ───────────────────────────────────── */
 @media (max-width: 1024px) {

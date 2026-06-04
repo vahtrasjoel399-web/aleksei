@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin · Mildanmar OÜ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:   #0d0d0d; --bg2: #111; --bg3: #181818; --card: #151515;
+  --acc:  #c4783c; --acc2: #b36830;
+  --text: #f0ede8; --text2: #999; --text3: #484840;
+  --brd:  #222;    --brd2: #2e2e2e;
+  --green: #27ae60; --red: #c0392b; --yellow: #f39c12;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--acc); color: #fff; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--acc); }
+
+/* ── LOGIN ─────────────────────────────────────────── */
+#login {
+  min-height: 100vh; display: flex;
+  align-items: center; justify-content: center;
+  background: var(--bg);
+}
+.login-box {
+  background: var(--bg3); border: 1px solid var(--brd2);
+  border-radius: 8px; padding: 48px 40px;
+  width: 100%; max-width: 360px; text-align: center;
+}
+.login-logo {
+  height: 52px; background: #fff; padding: 6px 16px;
+  border-radius: 6px; margin: 0 auto 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.login-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 6px; }
+.login-sub   { font-size: .82rem; color: var(--text2); margin-bottom: 28px; }
+.login-input {
+  width: 100%; padding: 11px 14px; margin-bottom: 14px;
+  background: var(--bg2); border: 1px solid var(--brd2);
+  border-radius: 5px; color: var(--text);
+  font-family: 'Inter', sans-serif; font-size: .9rem; outline: none;
+  transition: border-color .2s;
+}
+.login-input:focus { border-color: var(--acc); }
+.login-btn {
+  width: 100%; padding: 12px; background: var(--acc);
+  color: #fff; border: none; border-radius: 5px;
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: .92rem; cursor: pointer; transition: background .2s;
+}
+.login-btn:hover { background: var(--acc2); }
+.login-err { font-size: .8rem; color: var(--red); margin-top: 12px; min-height: 18px; }
+
+/* ── DASHBOARD ─────────────────────────────────────── */
+#dashboard { display: none; min-height: 100vh; flex-direction: column; }
+
+/* Header */
+.adm-header {
+  background: rgba(11,11,11,.95); border-bottom: 1px solid var(--brd);
+  padding: 0 28px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(12px);
+}
+.adm-logo { display: flex; align-items: center; gap: 12px; }
+.adm-logo img { height: 38px; background: #fff; padding: 4px 10px; border-radius: 5px; }
+.adm-logo-label { font-size: .75rem; color: var(--acc); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.adm-header-right { display: flex; align-items: center; gap: 16px; }
+.adm-back { font-size: .82rem; color: var(--text2); transition: color .2s; }
+.adm-back:hover { color: var(--acc); }
+.adm-logout {
+  padding: 6px 16px; border: 1px solid var(--brd2); border-radius: 5px;
+  background: transparent; color: var(--text2); font-size: .78rem;
+  font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif;
+  transition: all .2s;
+}
+.adm-logout:hover { border-color: var(--red); color: var(--red); }
+
+/* Stats bar */
+.stats-bar {
+  display: flex; gap: 1px; background: var(--brd);
+  border-bottom: 1px solid var(--brd);
+}
+.stat {
+  flex: 1; background: var(--bg2); padding: 16px 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--acc); line-height: 1; }
+.stat-label { font-size: .75rem; color: var(--text2); font-weight: 500; }
+
+/* Tabs */
+.tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--brd);
+  background: var(--bg2); padding: 0 28px;
+}
+.tab-btn {
+  padding: 14px 22px; background: none; border: none; border-bottom: 2px solid transparent;
+  color: var(--text2); font-size: .85rem; font-weight: 500; cursor: pointer;
+  font-family: 'Inter', sans-serif; transition: all .2s; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--acc); border-bottom-color: var(--acc); }
+.tab-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; background: var(--acc); color: #fff;
+  border-radius: 50%; font-size: .65rem; font-weight: 700; margin-left: 6px;
+}
+
+/* Content */
+.adm-content { flex: 1; padding: 32px 28px; max-width: 1000px; margin: 0 auto; width: 100%; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Empty state */
+.empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--text3); font-size: .9rem;
+}
+.empty-icon { font-size: 2.5rem; margin-bottom: 12px; opacity: .4; }
+
+/* Cards */
+.item-card {
+  background: var(--bg3); border: 1px solid var(--brd);
+  border-radius: 6px; padding: 22px 24px; margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--brd2); }
+.item-card.unread { border-left: 3px solid var(--acc); }
+
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.card-author { display: flex; align-items: center; gap: 10px; }
+.card-av {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--acc);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .9rem; color: #fff; flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+}
+.card-name { font-size: .9rem; font-weight: 600; }
+.card-date { font-size: .72rem; color: var(--text3); margin-top: 2px; }
+.card-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.badge-new {
+  padding: 3px 10px; background: rgba(196,120,60,.15);
+  border: 1px solid rgba(196,120,60,.3); border-radius: 20px;
+  font-size: .65rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--acc);
+}
+.badge-read {
+  padding: 3px 10px; background: rgba(39,174,96,.1);
+  border: 1px solid rgba(39,174,96,.25); border-radius: 20px;
+  font-size: .65rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--green);
+}
+
+.card-stars { display: flex; gap: 2px; margin-bottom: 10px; }
+.s { font-size: .85rem; color: var(--text3); }
+.s.on { color: var(--acc); }
+
+.card-text { font-size: .87rem; color: var(--text2); line-height: 1.7; margin-bottom: 14px; }
+.card-info { font-size: .8rem; color: var(--text2); line-height: 1.65; margin-bottom: 14px; }
+.card-info strong { color: var(--text); font-weight: 500; }
+
+.card-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.btn-approve {
+  padding: 7px 18px; background: rgba(39,174,96,.12);
+  border: 1px solid rgba(39,174,96,.3); border-radius: 5px;
+  color: var(--green); font-size: .8rem; font-weight: 600;
+  cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s;
+}
+.btn-approve:hover { background: rgba(39,174,96,.22); }
+.btn-delete {
+  padding: 7px 18px; background: rgba(192,57,43,.1);
+  border: 1px solid rgba(192,57,43,.25); border-radius: 5px;
+  color: var(--red); font-size: .8rem; font-weight: 600;
+  cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s;
+}
+.btn-delete:hover { background: rgba(192,57,43,.2); }
+.btn-markread {
+  padding: 7px 18px; background: rgba(196,120,60,.1);
+  border: 1px solid rgba(196,120,60,.25); border-radius: 5px;
+  color: var(--acc); font-size: .8rem; font-weight: 600;
+  cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s;
+}
+.btn-markread:hover { background: rgba(196,120,60,.2); }
+
+/* Settings */
+.settings-section { background: var(--bg3); border: 1px solid var(--brd); border-radius: 6px; padding: 28px; margin-bottom: 20px; }
+.settings-title { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); margin-bottom: 18px; }
+.settings-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.settings-field { flex: 1; min-width: 200px; }
+.settings-label { display: block; font-size: .72rem; font-weight: 600; color: var(--text2); margin-bottom: 6px; letter-spacing: .5px; }
+.settings-input {
+  width: 100%; padding: 10px 13px;
+  background: var(--bg2); border: 1px solid var(--brd2);
+  border-radius: 5px; color: var(--text);
+  font-family: 'Inter', sans-serif; font-size: .88rem; outline: none;
+  transition: border-color .2s;
+}
+.settings-input:focus { border-color: var(--acc); }
+.btn-save {
+  padding: 10px 24px; background: var(--acc); color: #fff;
+  border: none; border-radius: 5px; font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: .88rem; cursor: pointer; transition: background .2s;
+  white-space: nowrap;
+}
+.btn-save:hover { background: var(--acc2); }
+.settings-msg { font-size: .8rem; color: var(--green); margin-top: 10px; display: none; }
+.settings-msg.show { display: block; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: var(--bg3); border: 1px solid var(--brd2);
+  border-left: 3px solid var(--green);
+  padding: 12px 20px; border-radius: 6px;
+  font-size: .85rem; color: var(--text);
+  transform: translateY(20px); opacity: 0;
+  transition: all .3s ease; pointer-events: none;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 600px) {
+  .stats-bar { flex-wrap: wrap; }
+  .stat { flex: 1 1 50%; }
+  .adm-content { padding: 20px 16px; }
+  .login-box { padding: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN ─────────────────────────────────────────── -->
+<div id="login">
+  <div class="login-box">
+    <img class="login-logo" src="img/5839027156271435434.jpg" alt="Mildanmar OÜ">
+    <h2 class="login-title">Admin paneel</h2>
+    <p class="login-sub">Mildanmar OÜ veebisait</p>
+    <input type="password" class="login-input" id="pwd" placeholder="Parool" autocomplete="current-password">
+    <button class="login-btn" onclick="doLogin()">Sisse logida</button>
+    <div class="login-err" id="login-err"></div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ─────────────────────────────────────── -->
+<div id="dashboard">
+
+  <header class="adm-header">
+    <div class="adm-logo">
+      <img src="img/5839027156271435434.jpg" alt="Mildanmar OÜ">
+      <span class="adm-logo-label">Admin</span>
+    </div>
+    <div class="adm-header-right">
+      <a href="index.html" class="adm-back">← Tagasi saidile</a>
+      <button class="adm-logout" onclick="doLogout()">Välja logida</button>
+    </div>
+  </header>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num" id="stat-pending">0</div><div class="stat-label">Ootel arvustust</div></div>
+    <div class="stat"><div class="stat-num" id="stat-contacts">0</div><div class="stat-label">Uut päringut</div></div>
+    <div class="stat"><div class="stat-num" id="stat-approved">0</div><div class="stat-label">Avaldatud arvustust</div></div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('pending')" id="tab-btn-pending">
+      Ootel arvustused <span class="tab-badge" id="badge-pending">0</span>
+    </button>
+    <button class="tab-btn" onclick="showTab('contacts')" id="tab-btn-contacts">
+      Päringud <span class="tab-badge" id="badge-contacts">0</span>
+    </button>
+    <button class="tab-btn" onclick="showTab('approved')" id="tab-btn-approved">
+      Avaldatud arvustused
+    </button>
+    <button class="tab-btn" onclick="showTab('settings')" id="tab-btn-settings">
+      Seaded
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="adm-content">
+
+    <!-- Pending reviews -->
+    <div class="tab-panel active" id="panel-pending">
+      <div id="list-pending"></div>
+    </div>
+
+    <!-- Contact submissions -->
+    <div class="tab-panel" id="panel-contacts">
+      <div id="list-contacts"></div>
+    </div>
+
+    <!-- Approved reviews -->
+    <div class="tab-panel" id="panel-approved">
+      <div id="list-approved"></div>
+    </div>
+
+    <!-- Settings -->
+    <div class="tab-panel" id="panel-settings">
+      <div class="settings-section">
+        <div class="settings-title">Muuda parooli</div>
+        <div class="settings-row">
+          <div class="settings-field">
+            <label class="settings-label">Praegune parool</label>
+            <input type="password" class="settings-input" id="old-pwd" placeholder="Praegune parool">
+          </div>
+          <div class="settings-field">
+            <label class="settings-label">Uus parool</label>
+            <input type="password" class="settings-input" id="new-pwd" placeholder="Uus parool">
+          </div>
+          <div class="settings-field">
+            <label class="settings-label">Korda uut parooli</label>
+            <input type="password" class="settings-input" id="new-pwd2" placeholder="Korda uut parooli">
+          </div>
+          <button class="btn-save" onclick="changePwd()">Salvesta</button>
+        </div>
+        <div class="settings-msg" id="pwd-msg"></div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-title">Andmete kustutamine</div>
+        <div class="settings-row" style="flex-wrap:wrap;gap:10px">
+          <button class="btn-delete" onclick="clearData('contacts')">Kustuta kõik päringud</button>
+          <button class="btn-delete" onclick="clearData('approved')">Kustuta avaldatud arvustused</button>
+          <button class="btn-delete" onclick="clearData('pending')">Kustuta ootel arvustused</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Константы ─────────────────────────────────────────
+const LS_PENDING  = 'mildanmar_reviews_pending';
+const LS_APPROVED = 'mildanmar_reviews_approved';
+const LS_CONTACTS = 'mildanmar_contacts';
+const LS_PWD      = 'mildanmar_admin_pwd';
+const LS_SESSION  = 'mildanmar_admin_session';
+const DEFAULT_PWD = 'mildanmar';
+
+// ── Утилиты ───────────────────────────────────────────
+function lsGet(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch { return []; } }
+function lsSet(k, v) { localStorage.setItem(k, JSON.stringify(v)); }
+function getPwd() { return localStorage.getItem(LS_PWD) || DEFAULT_PWD; }
+
+function starsHtml(n) {
+  return Array.from({length:5}, (_,i) => `<span class="s${i<n?' on':''}">★</span>`).join('');
+}
+
+function toast(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.borderLeftColor = color || '#27ae60';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── Login ──────────────────────────────────────────────
+function doLogin() {
+  const val = document.getElementById('pwd').value;
+  if (val === getPwd()) {
+    sessionStorage.setItem(LS_SESSION, '1');
+    showDashboard();
+  } else {
+    document.getElementById('login-err').textContent = 'Vale parool. Proovige uuesti.';
+    document.getElementById('pwd').value = '';
+  }
+}
+
+document.getElementById('pwd').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+function doLogout() {
+  sessionStorage.removeItem(LS_SESSION);
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('pwd').value = '';
+}
+
+function showDashboard() {
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'flex';
+  document.getElementById('dashboard').style.flexDirection = 'column';
+  refreshAll();
+}
+
+// Auto-login if session exists
+if (sessionStorage.getItem(LS_SESSION)) showDashboard();
+
+// ── Tabs ───────────────────────────────────────────────
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  document.getElementById('tab-btn-' + name).classList.add('active');
+}
+
+// ── Рендер данных ──────────────────────────────────────
+function refreshAll() {
+  renderPending();
+  renderContacts();
+  renderApproved();
+  updateStats();
+}
+
+function updateStats() {
+  const pending  = lsGet(LS_PENDING);
+  const approved = lsGet(LS_APPROVED);
+  const contacts = lsGet(LS_CONTACTS);
+  const unread   = contacts.filter(c => !c.read).length;
+
+  document.getElementById('stat-pending').textContent  = pending.length;
+  document.getElementById('stat-contacts').textContent = unread;
+  document.getElementById('stat-approved').textContent = approved.length;
+  document.getElementById('badge-pending').textContent  = pending.length;
+  document.getElementById('badge-contacts').textContent = unread;
+}
+
+// Pending reviews
+function renderPending() {
+  const list = document.getElementById('list-pending');
+  const items = lsGet(LS_PENDING);
+  if (!items.length) {
+    list.innerHTML = `<div class="empty"><div class="empty-icon">✓</div>Ootel arvustusi ei ole.</div>`;
+    return;
+  }
+  list.innerHTML = items.map(r => `
+    <div class="item-card" id="pr-${r.id}">
+      <div class="card-head">
+        <div class="card-author">
+          <div class="card-av">${r.name.charAt(0)}</div>
+          <div>
+            <div class="card-name">${esc(r.name)}</div>
+            <div class="card-date">${r.date}</div>
+          </div>
+        </div>
+        <div class="card-meta"><span class="badge-new">UUS</span></div>
+      </div>
+      <div class="card-stars">${starsHtml(r.rating)}</div>
+      <p class="card-text">${esc(r.text)}</p>
+      <div class="card-actions">
+        <button class="btn-approve" onclick="approveReview(${r.id})">Avalda</button>
+        <button class="btn-delete"  onclick="deleteReview(${r.id})">Kustuta</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function approveReview(id) {
+  const pending  = lsGet(LS_PENDING);
+  const approved = lsGet(LS_APPROVED);
+  const idx = pending.findIndex(r => r.id === id);
+  if (idx === -1) return;
+  approved.push(pending[idx]);
+  pending.splice(idx, 1);
+  lsSet(LS_PENDING, pending);
+  lsSet(LS_APPROVED, approved);
+  toast('Arvustus avaldatud!');
+  refreshAll();
+}
+
+function deleteReview(id) {
+  if (!confirm('Kustutada arvustus?')) return;
+  const pending = lsGet(LS_PENDING).filter(r => r.id !== id);
+  lsSet(LS_PENDING, pending);
+  toast('Kustutatud.', '#c0392b');
+  refreshAll();
+}
+
+// Approved reviews
+function renderApproved() {
+  const list  = document.getElementById('list-approved');
+  const items = lsGet(LS_APPROVED);
+  if (!items.length) {
+    list.innerHTML = `<div class="empty"><div class="empty-icon">★</div>Avaldatud arvustusi ei ole.</div>`;
+    return;
+  }
+  list.innerHTML = items.map(r => `
+    <div class="item-card" id="ap-${r.id}">
+      <div class="card-head">
+        <div class="card-author">
+          <div class="card-av">${r.name.charAt(0)}</div>
+          <div>
+            <div class="card-name">${esc(r.name)}</div>
+            <div class="card-date">${r.date}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-stars">${starsHtml(r.rating)}</div>
+      <p class="card-text">${esc(r.text)}</p>
+      <div class="card-actions">
+        <button class="btn-delete" onclick="removeApproved(${r.id})">Eemalda saidilt</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function removeApproved(id) {
+  if (!confirm('Eemaldada arvustus saidilt?')) return;
+  const approved = lsGet(LS_APPROVED).filter(r => r.id !== id);
+  lsSet(LS_APPROVED, approved);
+  toast('Eemaldatud.', '#c0392b');
+  refreshAll();
+}
+
+// Contact submissions
+function renderContacts() {
+  const list  = document.getElementById('list-contacts');
+  const items = lsGet(LS_CONTACTS).slice().reverse();
+  if (!items.length) {
+    list.innerHTML = `<div class="empty"><div class="empty-icon">✉</div>Päringuid ei ole.</div>`;
+    return;
+  }
+  list.innerHTML = items.map(c => `
+    <div class="item-card${c.read ? '' : ' unread'}" id="ct-${c.id}">
+      <div class="card-head">
+        <div class="card-author">
+          <div class="card-av">${c.name.charAt(0)}</div>
+          <div>
+            <div class="card-name">${esc(c.name)}</div>
+            <div class="card-date">${c.date}</div>
+          </div>
+        </div>
+        <div class="card-meta">
+          ${c.read ? '<span class="badge-read">LOETUD</span>' : '<span class="badge-new">UUES</span>'}
+        </div>
+      </div>
+      <div class="card-info">
+        <strong>Tel:</strong> ${esc(c.phone)} &nbsp;·&nbsp;
+        <strong>Email:</strong> <a href="mailto:${esc(c.email)}" style="color:var(--acc)">${esc(c.email)}</a><br>
+        <strong>Töö liik:</strong> ${esc(c.workType || '—')}<br>
+        ${c.desc ? `<strong>Kirjeldus:</strong> ${esc(c.desc)}` : ''}
+      </div>
+      <div class="card-actions">
+        ${!c.read ? `<button class="btn-markread" onclick="markRead(${c.id})">Märgi loetuks</button>` : ''}
+        <a href="mailto:${esc(c.email)}" class="btn-approve" style="display:inline-flex;align-items:center">Vasta e-postiga</a>
+        <button class="btn-delete" onclick="deleteContact(${c.id})">Kustuta</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function markRead(id) {
+  const contacts = lsGet(LS_CONTACTS).map(c => c.id === id ? {...c, read: true} : c);
+  lsSet(LS_CONTACTS, contacts);
+  refreshAll();
+}
+
+function deleteContact(id) {
+  if (!confirm('Kustutada päring?')) return;
+  const contacts = lsGet(LS_CONTACTS).filter(c => c.id !== id);
+  lsSet(LS_CONTACTS, contacts);
+  toast('Päring kustutatud.', '#c0392b');
+  refreshAll();
+}
+
+// ── Settings ───────────────────────────────────────────
+function changePwd() {
+  const old  = document.getElementById('old-pwd').value;
+  const nw   = document.getElementById('new-pwd').value;
+  const nw2  = document.getElementById('new-pwd2').value;
+  const msg  = document.getElementById('pwd-msg');
+
+  if (old !== getPwd())   { showMsg(msg, 'Vale praegune parool.', 'red'); return; }
+  if (nw.length < 4)      { showMsg(msg, 'Uus parool peab olema vähemalt 4 tähemärki.', 'red'); return; }
+  if (nw !== nw2)         { showMsg(msg, 'Paroolid ei ühti.', 'red'); return; }
+
+  localStorage.setItem(LS_PWD, nw);
+  showMsg(msg, 'Parool muudetud!', 'green');
+  document.getElementById('old-pwd').value = '';
+  document.getElementById('new-pwd').value = '';
+  document.getElementById('new-pwd2').value = '';
+}
+
+function showMsg(el, text, color) {
+  el.textContent = text;
+  el.style.color = color === 'red' ? 'var(--red)' : 'var(--green)';
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4000);
+}
+
+function clearData(type) {
+  const labels = { contacts: 'kõik päringud', approved: 'avaldatud arvustused', pending: 'ootel arvustused' };
+  if (!confirm(`Kustutada ${labels[type]}?`)) return;
+  const keys = { contacts: LS_CONTACTS, approved: LS_APPROVED, pending: LS_PENDING };
+  lsSet(keys[type], []);
+  toast('Kustutatud.', '#c0392b');
+  refreshAll();
+}
+
+// ── XSS protection ────────────────────────────────────
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
