@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mildanmar OÜ - Tellimusmööbel Eestis ja Soomes">
+  <title>Mildanmar OÜ — Tellimusmööbel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ HEADER -->
+<header id="hdr">
+  <div class="container">
+    <div class="hd">
+      <a href="#hero" class="logo">
+        <img class="logo-img" src="img/5839027156271435434.jpg" alt="Mildanmar OÜ">
+      </a>
+
+      <nav id="mainnav">
+        <a href="#hero"     class="active" data-i18n="nav.home"></a>
+        <a href="#about"               data-i18n="nav.about"></a>
+        <a href="#services"            data-i18n="nav.services"></a>
+        <a href="#projects"            data-i18n="nav.projects"></a>
+        <a href="#reviews"             data-i18n="nav.reviews"></a>
+        <a href="#contact"             data-i18n="nav.contact"></a>
+      </nav>
+
+      <div class="hright">
+        <div class="lsw" id="lsw">
+          <button class="lb on" data-lang="et">ET</button>
+          <button class="lb"    data-lang="ru">RU</button>
+          <button class="lb"    data-lang="en">EN</button>
+          <button class="lb"    data-lang="fi">FI</button>
+        </div>
+        <button class="hbg" id="hbg" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <a href="#hero"     data-i18n="nav.home"></a>
+  <a href="#about"    data-i18n="nav.about"></a>
+  <a href="#services" data-i18n="nav.services"></a>
+  <a href="#projects" data-i18n="nav.projects"></a>
+  <a href="#reviews"  data-i18n="nav.reviews"></a>
+  <a href="#contact"  data-i18n="nav.contact"></a>
+  <div class="mlang">
+    <button class="lb" data-lang="et">ET</button>
+    <button class="lb" data-lang="ru">RU</button>
+    <button class="lb" data-lang="en">EN</button>
+    <button class="lb" data-lang="fi">FI</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="hero-photo"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-line"></div>
+      <h1 class="hero-title" data-i18n-html="hero.titleHtml"></h1>
+      <p  class="hero-sub"   data-i18n="hero.sub"></p>
+      <div class="hero-btns">
+        <a href="#contact"  class="btn btn-prim" data-i18n="hero.cta"></a>
+        <a href="#services" class="btn btn-sec"  data-i18n="hero.cta2"></a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="container">
+      <div class="hero-stats">
+        <div class="hs"><div class="hs-num">2+</div>  <div class="hs-label" data-i18n="hero.s1"></div></div>
+        <div class="hs"><div class="hs-num">50+</div> <div class="hs-label" data-i18n="hero.s2"></div></div>
+        <div class="hs"><div class="hs-num">2</div>   <div class="hs-label" data-i18n="hero.s3"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="fl">
+        <div class="sec-ey"    data-i18n="about.ey"></div>
+        <h2 class="sec-title"  data-i18n="about.title"></h2>
+        <p  class="atext"      data-i18n="about.p1"></p>
+        <p  class="atext"      data-i18n="about.p2"></p>
+        <div class="adetails">
+          <div class="ad-item"><span class="ad-lbl" data-i18n="about.l1"></span><span class="ad-val">Mildanmar OÜ</span></div>
+          <div class="ad-item"><span class="ad-lbl" data-i18n="about.l2"></span><span class="ad-val">13.11.2023</span></div>
+          <div class="ad-item"><span class="ad-lbl" data-i18n="about.l4"></span><span class="ad-val" data-i18n="about.regions"></span></div>
+        </div>
+      </div>
+
+      <div class="fr">
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy">
+          <div class="photo-caption">Aleksei Klein — Mildanmar OÜ</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="sec-hd fi">
+      <div class="sec-ey"   data-i18n="srv.ey"></div>
+      <h2 class="sec-title" data-i18n="srv.title"></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="srv fi d1">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </div>
+        <h3 class="srv-title" data-i18n="srv.s1t"></h3>
+        <p  class="srv-desc"  data-i18n="srv.s1d"></p>
+      </div>
+
+      <div class="srv fi d2">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 class="srv-title" data-i18n="srv.s2t"></h3>
+        <p  class="srv-desc"  data-i18n="srv.s2d"></p>
+      </div>
+
+      <div class="srv fi d3">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <h3 class="srv-title" data-i18n="srv.s3t"></h3>
+        <p  class="srv-desc"  data-i18n="srv.s3d"></p>
+      </div>
+
+      <div class="srv fi d4">
+        <div class="srv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3 class="srv-title" data-i18n="srv.s4t"></h3>
+        <p  class="srv-desc"  data-i18n="srv.s4d"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 3D MODEL -->
+<section id="model3d" class="section">
+  <div class="container">
+    <div class="sec-hd fi">
+      <div class="sec-ey"    data-i18n="m3d.ey"></div>
+      <h2 class="sec-title" data-i18n="m3d.title"></h2>
+      <p style="color:var(--text2);font-size:.9rem;margin-top:-10px" data-i18n="m3d.sub"></p>
+    </div>
+    <div class="model-wrap fi">
+      <canvas id="model-canvas"></canvas>
+      <div class="model-hint" data-i18n="m3d.hint"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="sec-hd fi">
+      <div class="sec-ey"   data-i18n="prj.ey"></div>
+      <h2 class="sec-title" data-i18n="prj.title"></h2>
+    </div>
+    <div class="pgrid">
+      <div class="pcard fi d1">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c1"></div><div class="pname" data-i18n="prj.p1"></div></div>
+      </div>
+      <div class="pcard fi d2">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c2"></div><div class="pname" data-i18n="prj.p2"></div></div>
+      </div>
+      <div class="pcard fi d3">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c3"></div><div class="pname" data-i18n="prj.p3"></div></div>
+      </div>
+      <div class="pcard fi">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c4"></div><div class="pname" data-i18n="prj.p4"></div></div>
+      </div>
+      <div class="pcard fi d1">
+        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c5"></div><div class="pname" data-i18n="prj.p5"></div></div>
+      </div>
+      <div class="pcard fi d2">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=78" alt="" loading="lazy">
+        <div class="poverlay"><div class="pcat" data-i18n="prj.c6"></div><div class="pname" data-i18n="prj.p6"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ REVIEWS -->
+<section id="reviews" class="section">
+  <div class="container">
+    <div class="sec-hd fi">
+      <div class="sec-ey"   data-i18n="rev.ey"></div>
+      <h2 class="sec-title" data-i18n="rev.title"></h2>
+    </div>
+
+    <!-- Карточки отзывов (заполняются через JS) -->
+    <div class="rgrid" id="revgrid"></div>
+
+    <!-- Форма отзыва -->
+    <div class="rfwrap fi">
+      <h3 class="ftitle" data-i18n="rev.fmTitle"></h3>
+      <form id="revform" novalidate>
+        <div class="fgroup">
+          <label class="flabel" data-i18n="rev.nameL"></label>
+          <input type="text" class="finput" id="rv-name" data-ph="rev.namePh">
+          <div class="emsg" id="rv-ne"></div>
+        </div>
+        <div class="fgroup">
+          <label class="flabel" data-i18n="rev.ratingL"></label>
+          <div class="sinp" id="starinp">
+            <span class="si" data-v="1">&#9733;</span>
+            <span class="si" data-v="2">&#9733;</span>
+            <span class="si" data-v="3">&#9733;</span>
+            <span class="si" data-v="4">&#9733;</span>
+            <span class="si" data-v="5">&#9733;</span>
+          </div>
+          <div class="emsg" id="rv-re"></div>
+        </div>
+        <div class="fgroup">
+          <label class="flabel" data-i18n="rev.textL"></label>
+          <textarea class="finput" id="rv-text" rows="4" data-ph="rev.textPh"></textarea>
+          <div class="emsg" id="rv-te"></div>
+        </div>
+        <button type="submit" class="btn btn-prim" style="width:100%;justify-content:center">
+          <span data-i18n="rev.submit"></span>
+        </button>
+        <div class="smsg" id="rv-ok"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="sec-hd fi">
+      <div class="sec-ey"   data-i18n="cnt.ey"></div>
+      <h2 class="sec-title" data-i18n="cnt.title"></h2>
+    </div>
+    <div class="cgrid">
+
+      <!-- Контактная информация + карта -->
+      <div class="fl">
+        <div class="ciblock"><div class="cilabel" data-i18n="cnt.addrL"></div><div class="cival" data-i18n="cnt.addr"></div></div>
+        <div class="ciblock"><div class="cilabel" data-i18n="cnt.phoneL"></div><div class="cival"><a href="tel:+3725100000">+372 5100 0000</a></div></div>
+        <div class="ciblock"><div class="cilabel" data-i18n="cnt.emailL"></div><div class="cival"><a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a></div></div>
+        <div class="ciblock"><div class="cilabel" data-i18n="cnt.hoursL"></div><div class="cival" data-i18n="cnt.hours"></div></div>
+        <div class="mapwrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16363.5!2d26.9636!3d59.3530!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469423f5a4e0b8c5%3A0xa41e9e50ae6e0c8b!2sKivi%C3%B5li!5e0!3m2!1set!2see!4v1700000000000!5m2!1set!2see"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Форма заявки -->
+      <div class="cform fr">
+        <h3 class="ftitle" data-i18n="cnt.fmTitle"></h3>
+        <form id="cntform" novalidate>
+          <div class="frow">
+            <div class="fgroup">
+              <label class="flabel" data-i18n="cnt.nameL"></label>
+              <input type="text"  class="finput" id="c-name"  data-ph="cnt.namePh">
+              <div class="emsg" id="c-ne"></div>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" data-i18n="cnt.phoneL"></label>
+              <input type="tel"   class="finput" id="c-phone" data-ph="cnt.phonePh">
+              <div class="emsg" id="c-pe"></div>
+            </div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" data-i18n="cnt.emailL"></label>
+            <input type="email" class="finput" id="c-email" data-ph="cnt.emailPh">
+            <div class="emsg" id="c-ee"></div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" data-i18n="cnt.workL"></label>
+            <select class="finput" id="c-work"></select>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" data-i18n="cnt.descL"></label>
+            <textarea class="finput" id="c-desc" rows="4" data-ph="cnt.descPh"></textarea>
+          </div>
+          <button type="submit" class="btn btn-prim" style="width:100%;justify-content:center">
+            <span data-i18n="cnt.submit"></span>
+          </button>
+          <div class="smsg" id="c-ok"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div class="fi">
+        <a href="#hero"><img class="flogo-img" src="img/5839027156271435434.jpg" alt="Mildanmar OÜ"></a>
+        <p class="fdesc" data-i18n="ft.desc"></p>
+      </div>
+      <div class="fi d1">
+        <div class="fcoltitle" data-i18n="ft.col1"></div>
+        <ul class="flinks">
+          <li><a href="#services" data-i18n="srv.s1t"></a></li>
+          <li><a href="#services" data-i18n="srv.s2t"></a></li>
+          <li><a href="#services" data-i18n="srv.s3t"></a></li>
+          <li><a href="#services" data-i18n="srv.s4t"></a></li>
+        </ul>
+      </div>
+      <div class="fi d2">
+        <div class="fcoltitle" data-i18n="ft.col2"></div>
+        <ul class="flinks">
+          <li><a href="mailto:info@mildanmar.ee">info@mildanmar.ee</a></li>
+          <li><a href="tel:+3725100000">+372 5100 0000</a></li>
+          <li><a href="#contact" data-i18n="cnt.addrL"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span class="fbt" data-i18n="ft.copy"></span>
+      <span class="fbt" data-i18n="ft.reg"></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════ SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
