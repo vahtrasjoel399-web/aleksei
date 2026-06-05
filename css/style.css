@@ -380,21 +380,51 @@ footer { background: var(--bg); border-top: 1px solid var(--brd); padding: 54px 
   .cgrid         { grid-template-columns: 1fr; gap: 38px; }
   .fgrid         { grid-template-columns: 1fr 1fr; gap: 34px; }
 }
+
 @media (max-width: 768px) {
+  :root          { --hh: 60px; }
   nav            { display: none; }
   .hbg           { display: flex; }
   .lsw           { display: none; }
-  .section       { padding: 62px 0; }
+  .container     { padding: 0 20px; }
+  .section       { padding: 56px 0; }
   .pgrid         { grid-template-columns: repeat(2, 1fr); }
   .fgrid         { grid-template-columns: 1fr; gap: 26px; }
   .frow          { grid-template-columns: 1fr; }
   .fbot          { flex-direction: column; text-align: center; }
   .hs-label      { font-size: .6rem; }
+  .hs-num        { font-size: 1.25rem; }
+  .about-photo img { height: 260px; }
+  .rfwrap, .cform { padding: 28px 20px; }
+  .model-wrap canvas { min-height: 260px; }
+  .cookie-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 20px; }
+  .cookie-actions { width: 100%; justify-content: space-between; }
+  .srv-main      { padding: 24px 20px; }
+  .logo-img      { height: 40px; }
 }
+
 @media (max-width: 480px) {
+  .container     { padding: 0 16px; }
+  .section       { padding: 44px 0; }
   .pgrid         { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
   .adetails      { grid-template-columns: 1fr; }
-  .rfwrap, .cform { padding: 24px 16px; }
+  .rfwrap, .cform { padding: 20px 14px; }
   .hero-stats    { flex-wrap: wrap; }
   .hs            { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .hero-btns     { flex-direction: column; }
+  .hero-btns .btn { width: 100%; justify-content: center; }
+  .about-photo img { height: 220px; }
+  .model-wrap canvas { min-height: 220px; }
+  .sec-title     { font-size: 1.55rem; }
+  .fgrid         { gap: 20px; }
+}
+
+@media (max-width: 360px) {
+  :root          { --hh: 56px; }
+  .container     { padding: 0 12px; }
+  .hero-title    { font-size: 2.2rem; }
+  .btn           { padding: 11px 20px; font-size: .85rem; }
+  .hs            { flex: 1 1 100%; }
+  .rfwrap, .cform { padding: 16px 12px; }
 }
